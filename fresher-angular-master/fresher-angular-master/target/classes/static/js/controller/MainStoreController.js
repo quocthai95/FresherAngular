@@ -1,22 +1,21 @@
 
 app.controller("MainStoreController",function($scope,storeService,$routeParams){
-	/*$scope.product = 
-    {
-      name : "",
-      model : "",
-      year : "",
-      price : "",
-      producer : "",
-      available : ""
-    };*/
 	
-    $scope.add = function(index){
-    	$scope.records[index].available+=1;
-    };
-    $scope.sub = function(index){
-    	if ($scope.records[index].available > 0)
-    	$scope.records[index].available-=1;
-    };
+	$scope.id = $routeParams.id;
+    $scope.add = function(index,id){
+    		storeService.getProductIA(id).then(function(data){
+    			console.log('đã tăng');
+    			$scope.records[index].available +=1;
+    		
+    			
+    		})};
+    
+    $scope.sub = function(index,id){
+    	storeService.getProductDA(id).then(function(data){
+			console.log('đã giảm');
+			if ($scope.records[index].available > 0)
+			$scope.records[index].available -=1;  	
+    })};
     $scope.remove = function(index){
     	 $scope.records.splice(index,1);
     };
@@ -43,10 +42,7 @@ app.controller("MainStoreController",function($scope,storeService,$routeParams){
     			});
         
       }; 
-      $scope.id = $routeParams.id;
-      storeService.getProduct($scope.id).then(function(data){
-    	  $scope.record = data;
-      })
+      
  
 });
 

@@ -28,7 +28,7 @@ app.config(function($routeProvider){
           })
           .when('/mainstore/product/:id',{
         	  templateUrl: "/fresherangular/views/github/1.html",
-        	  controller: 'MainStoreController'
+        	  controller: 'LinkController'
           })
           
           //End Github Service example

@@ -25,11 +25,29 @@ app.factory('storeService', function($http) {
 		  return response.data;
 	  });
   };
+  
+  var getProductIA = function(id) {
+	    return $http.get("http://localhost:8000/fresherangular/product/increase/" + id)
+	      .then(function(response) {
+	        return response.data;
+	      });
+	  };
+	  
+   var getProductDA = function(id) {
+		    return $http.get("http://localhost:8000/fresherangular/product/decrease/" + id)
+		      .then(function(response) {
+		        return response.data;
+		      });
+		  };
+	  
+	  
 
   return {
 	
     getProducts: getProducts,
     getProduct: getProduct,
-    postProduct: postProduct
+    postProduct: postProduct,
+    getProductIA: getProductIA,
+    getProductDA: getProductDA
   }
 });

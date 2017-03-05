@@ -6,17 +6,17 @@
 		<div style="margin-left:10%">
 		<h2>Product Detail</h2>
 		<pre >
-		Name:		    {{record.name}}
+		Name:		    {{record.name | uppercase }}
 
 		Model:		    {{record.model}}
 
 		Year:	            {{record.year}}
 
-		Price:		    {{record.price}}
+		Price:		    {{record.price | currency}}
 
 		Producer:	    {{record.producer}}
 
-		Available:	    {{record.available}}
+		Available:	    {{record.available | currency: "":0}}
 
 		</pre>
 		<button type="button" class="btn btn-primary" ><a href="#/mainstore" style="color:white">Back to Main Store</a></button>

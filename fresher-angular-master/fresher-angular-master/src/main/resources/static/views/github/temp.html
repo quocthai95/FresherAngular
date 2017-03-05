@@ -55,9 +55,9 @@
 							<td>{{x.year}}</td>
 							<td>{{x.price | currency}}</td>
 							<td>{{x.producer}}</td>
-							<td><i class="glyphicon glyphicon-plus btn btn-sm btn-success" ng-click="add($index)"></i>
+							<td><i class="glyphicon glyphicon-plus btn btn-sm btn-success" ng-click="add($index,x.id)"></i>
 								<div>{{x.available | currency: "":0}}</div>
-								<i class="glyphicon glyphicon-minus btn btn-sm btn-warning" ng-click="sub($index)"></i></td>
+								<i class="glyphicon glyphicon-minus btn btn-sm btn-warning" ng-click="sub($index,x.id)" ng-disabled="x.available < 1 "></i></td>
 								<td><i class="glyphicon glyphicon-trash btn btn-sm btn-danger" ng-click="remove($index)"></i></td>
 							</tr>
 						</tbody>
